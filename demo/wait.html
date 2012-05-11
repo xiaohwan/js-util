@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Utilities: Wait-Then-Max</title>
+    <script src="../src/js-util.js"></script>
+  </head>
+  <body>
+    <h1>JavaScript Utilities: Wait-Then-Max</h1>
+    <div id="panel" style="display:none;">Oops!</div>
+    <script>
+      util.wait(function() {
+        console.log('do');
+        return document.body.clientWidth < 600;
+      }).then(function() {
+        document.getElementById('panel').style.display = 'block';
+      }).max(50).or(function() {
+        document.getElementById('panel').innerText = 'Nothing happened.';
+        document.getElementById('panel').style.display = 'block';
+      });
+    </script>
+  </body>
+</html>
